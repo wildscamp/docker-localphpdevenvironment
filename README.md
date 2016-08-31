@@ -94,7 +94,7 @@ There are two ways to access the MySQL databases.
    with access to the MySQL server. You can access it at
    `http://$DOCKER_MACHINE_IP:8080/`.
 
-_Account Info_
+**Account Info**
 
 | Username | Password | Database Name |
 |----------|----------|---------------|
@@ -112,13 +112,13 @@ and certificate files, the primary way to add and remove files from these data
 volumes is through FTP. The `docker-compose.yml` file spins up a container that
 gives FTP access to these data volumes.
 
-_Connection Info_
+**Connection Info**
 
 | Server             | Port |
 |--------------------|------|
 | $DOCKER_MACHINE_IP | 21   |
 
-_FTP Users_
+**FTP Users**
 
 | Username | Password | Volume Access       |
 |----------|----------|---------------------|
