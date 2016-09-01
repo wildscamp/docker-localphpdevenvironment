@@ -1,6 +1,6 @@
 # Local PHP Development Environment
 
-![Docker Logo](assets/img/small_v-trans-115.png?raw=true) ![The Wilds Logo](https://avatars1.githubusercontent.com/u/11079956?v=3&s=115)
+![Docker Logo](https://www.gravatar.com/avatar/def8e498c0e2b4d1b0cb398ca164cddd?s=115) ![The Wilds Logo](https://avatars1.githubusercontent.com/u/11079956?v=3&s=115)
 
 The web development team [The Wilds](http://wilds.org) has decided to set up our
 local development environments through the orchestration of Docker containers. This
