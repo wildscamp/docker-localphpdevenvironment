@@ -15,13 +15,13 @@ services:
 
   phpmyadmin:
     container_name: phpmyadmin
-    image: wildscamp/phpmyadmin:4.0.10.15
+    image: wildscamp/phpmyadmin
     hostname: phpmyadmin
     ports:
       - "8080:80"
-    restart: on-failure
     links:
       - mysql:db
+    restart: on-failure
 
   vsftpd:
     container_name: vsftpd
@@ -41,6 +41,7 @@ services:
       VSFTPD_USER_1: 'www-data:ftp:33:'
       VSFTPD_USER_2: 'mysql:mysql:999:'
       VSFTPD_USER_3: 'certs:certs:50:'
+    restart: on-failure
 
   php:
     container_name: php
