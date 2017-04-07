@@ -48,6 +48,11 @@ Getting Started
 3) Open incoming TCP port `9000` on your development machine (presumably the
    computer hosting Docker) for accepting Xdebug events from the
    [wildscamp/php](https://hub.docker.com/r/wildscamp/php/) container.
+   
+   **Note:** On Windows the Hyper-V `DockerNAT` connection can be classified
+   as a Public network, so make sure to include the Public networking profile
+   in the firewall rule. Also, the Local Scope can be limited to the
+   `$DOCKER_MACHINE_IP`.
 
 4) Create some named Docker volumes for storing the application files. This only
    needs to be done the first time you set up your environment.
