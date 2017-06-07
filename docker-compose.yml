@@ -52,6 +52,7 @@ services:
       - XDEBUG_REMOTE_HOST=10.0.75.1
     ports:
       - "80:80"
+      - "443:443"
     working_dir: /var/www/html
     volumes:
       - docker-html:/var/www/html
