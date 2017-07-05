@@ -61,6 +61,12 @@ services:
       - mysql:db
     restart: on-failure
 
+  mailcatcher:
+    container_name: mailcatcher
+    image: matriphe/debian-mailcatcher
+    ports:
+    - "10080:1080"
+
 volumes:
   docker-mysql:
     external: true
