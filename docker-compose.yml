@@ -50,6 +50,7 @@ services:
     environment:
       - TIMEZONE=America/New_York
       - XDEBUG_REMOTE_HOST=10.0.75.1
+      - WP_CACHE_MEMCACHED_ADDR=memcached:11211
     ports:
       - "80:80"
       - "443:443"
@@ -66,6 +67,10 @@ services:
     image: matriphe/debian-mailcatcher
     ports:
     - "10080:1080"
+
+  memcached:
+      container_name: memcached
+      image: memcached:latest
 
 volumes:
   docker-mysql:
