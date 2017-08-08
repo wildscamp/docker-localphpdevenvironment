@@ -64,7 +64,7 @@ services:
 
   mailcatcher:
     container_name: mailcatcher
-    image: matriphe/debian-mailcatcher
+    image: zolweb/docker-mailcatcher
     ports:
     - "10080:1080"
 
