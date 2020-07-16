@@ -23,7 +23,7 @@ services:
     image: wildscamp/php
     environment:
       - TIMEZONE=America/New_York
-      - XDEBUG_REMOTE_HOST=10.0.75.1
+      - XDEBUG_REMOTE_HOST=host.docker.internal
       - WP_CACHE_MEMCACHED_ADDR=memcached:11211
     ports:
       - "80:80"
