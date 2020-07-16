@@ -1,0 +1,22 @@
+version: '3'
+services:
+  php:
+    image: wildscamp/php
+    environment:
+      - LOG_PATH=/var/www/html/wp-content/uploads/wc-logs
+    volumes:
+      - ../.letsencrypt-data:/etc/letsencrypt
+    links:
+      - letsencrypt
+
+  letsencrypt:
+    image: wildscamp/certbot-route53
+    environment:
+      - SELF_SIGNED_SUBJECT=/C=US/ST=NY/L=New York/O=Example Company/CN=localdev.example.com
+      - AWS_ACCESS_KEY_ID=AAAAAAAAAAAAAAAAAA
+      - AWS_SECRET_ACCESS_KEY=BBBBBBBBBBBBBBBBBB
+      - LOCALDEV_DOMAIN_PREFIX=jdoe
+      - BASE_DOMAIN=localdev.example.com
+    volumes:
+      - ../.letsencrypt-data:/etc/letsencrypt
+      - ./certificates:/etc/pki/tls
