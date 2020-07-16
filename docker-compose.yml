@@ -8,7 +8,7 @@ services:
       - MYSQL_ROOT_PASSWORD=pw
       - MYSQL_DATABASE=local_db
     volumes:
-      - docker-mysql:/var/lib/mysql
+      - ./mysql:/var/lib/mysql
     restart: on-failure
 
   phpmyadmin:
@@ -17,26 +17,6 @@ services:
       - "8080:80"
     links:
       - mysql:db
-    restart: on-failure
-
-  vsftpd:
-    container_name: vsftpd
-    image: wildscamp/vsftpd
-    hostname: vsftpd
-    ports:
-      - "21:21"
-      - "30000-30009:30000-30009"
-    volumes:
-      - docker-html:/home/virtual/www-data/html
-      - docker-certificates:/home/virtual/certs/certs
-      - docker-mysql:/home/virtual/mysql/mysql
-    environment:
-      PASV_ADDRESS: 10.0.75.1
-      PASV_MIN_PORT: 30000
-      PASV_MAX_PORT: 30009
-      VSFTPD_USER_1: 'www-data:ftp:33:'
-      VSFTPD_USER_2: 'mysql:mysql:999:'
-      VSFTPD_USER_3: 'certs:certs:50:'
     restart: on-failure
 
   php:
@@ -50,8 +30,8 @@ services:
       - "443:443"
     working_dir: /var/www/html
     volumes:
-      - docker-html:/var/www/html
-      - docker-certificates:/usr/local/share/ca-certificates
+      - ./html:/var/www/html
+      - ./certificates:/etc/pki/tls
     links:
       - mysql:db
     restart: on-failure
@@ -64,11 +44,3 @@ services:
 
   memcached:
       image: memcached:latest
-
-volumes:
-  docker-mysql:
-    external: true
-  docker-html:
-    external: true
-  docker-certificates:
-    external: true
