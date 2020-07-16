@@ -36,11 +36,5 @@ services:
       - mysql:db
     restart: on-failure
 
-  mailcatcher:
-    container_name: mailcatcher
-    image: zolweb/docker-mailcatcher
-    ports:
-    - "10080:1080"
-
   memcached:
       image: memcached:latest
